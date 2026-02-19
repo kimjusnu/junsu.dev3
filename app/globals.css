@@ -1,26 +1,346 @@
+@custom-variant dark (&:where(.dark, .dark *));
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --theme-color: #EA580C;
+}
+
+/* Pretendard 폰트 */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-display: swap;
+}
+
+/* OmuDaye 폰트 */
+@font-face {
+  font-family: 'OmuDaye';
+  src: url('/omyu pretty.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-pretendard: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --theme-color: #EA580C;
+}
+
+.theme-spring {
+  --theme-color: #f94570;
+}
+
+.theme-summer {
+  --theme-color: #09e022;
+}
+
+.theme-autumn {
+  --theme-color: #EA580C;
+}
+
+.theme-winter {
+  --theme-color: #3B82F6;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --color-accent: var(--theme-color);
+  --color-accent-hover: #dc2626;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 스크롤 부드럽게 */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+
+/* 스크롤 애니메이션 - 화려하고 세련된 효과 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9) rotateX(10deg);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.95);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px) scale(0.95);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  filter: blur(10px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* 카드 순차 애니메이션 - 더 부드럽고 화려하게 */
+.animate-card {
+  opacity: 0 !important;
+  transform: translateY(50px) scale(0.9) rotateX(10deg) !important;
+  filter: blur(10px) !important;
+  transition: none !important;
+}
+
+.scroll-animate.visible .animate-card {
+  animation: fadeInScale 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  will-change: opacity, transform, filter;
+}
+
+.scroll-animate.visible .animate-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.scroll-animate.visible .animate-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.scroll-animate.visible .animate-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.scroll-animate.visible .animate-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.scroll-animate.visible .animate-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.scroll-animate.visible .animate-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.scroll-animate.visible .animate-card:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+.scroll-animate.visible .animate-card:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+/* 제목 애니메이션 */
+.animate-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-animate.visible .animate-title {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 카드 호버 효과 강화 */
+.animate-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+  position: relative;
+}
+
+.animate-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(234, 88, 12, 0.05) 0%,
+    rgba(234, 88, 12, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.animate-card:hover::before {
+  opacity: 1;
+}
+
+.animate-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 25px 50px -12px rgba(234, 88, 12, 0.15),
+    0 0 0 1px rgba(234, 88, 12, 0.1);
+}
+
+.dark .animate-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(234, 88, 12, 0.2);
+}
+
+/* 아이콘 회전 효과 */
+.animate-card:hover .lucide {
+  transform: rotate(5deg) scale(1.1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 다크모드 지원 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* 펄스 애니메이션 */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.2);
+  }
+}
+
+/* 커스텀 스크롤바 디자인 */
+/* Webkit 브라우저 (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-color, #3B82F6) !important;
+  border-radius: 10px !important;
+  border: 2px solid transparent !important;
+  background-clip: padding-box !important;
+  transition: background 0.3s ease, opacity 0.3s ease !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-color, #3B82F6) !important;
+  opacity: 0.8 !important;
+  background-clip: padding-box !important;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--theme-color, #3B82F6) transparent !important;
+}
+
+body {
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--theme-color, #3B82F6) transparent !important;
 }
