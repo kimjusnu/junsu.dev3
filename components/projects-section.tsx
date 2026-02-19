@@ -251,8 +251,6 @@ export function ProjectsSection() {
                   className="group/btn relative flex items-center gap-2 overflow-hidden rounded-xl border border-white/20 bg-white/90 px-5 py-3 text-sm font-semibold backdrop-blur-md transition-all duration-300 hover:bg-white hover:scale-105 hover:shadow-2xl active:scale-95 dark:border-white/10 dark:bg-black/20 dark:text-white dark:hover:bg-black/30"
                   style={{
                     color: "var(--theme-color)",
-                  }}
-                  style={{
                     boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05) inset",
                   }}
                   onMouseEnter={(e) => {

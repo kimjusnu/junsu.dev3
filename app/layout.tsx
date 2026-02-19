@@ -7,6 +7,7 @@ import { ColorThemeProvider } from "@/components/color-theme-provider";
 import AOSInit from "@/components/aos-init";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://kimjusnu.vercel.app"),
   title: "김준수 | Junsu Kim",
   description: "프론트엔드 개발자 김준수의 포트폴리오. Next.js, TypeScript, React 기반으로 서비스를 설계·구현해온 프론트엔드 개발자입니다.",
   keywords: [
